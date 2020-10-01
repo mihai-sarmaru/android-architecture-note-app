@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sarmaru.mihai.androidarchitecturenoteapp.adapters.NoteAdapter;
 import com.sarmaru.mihai.androidarchitecturenoteapp.models.Note;
 import com.sarmaru.mihai.androidarchitecturenoteapp.viewmodels.NoteViewModel;
@@ -16,6 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int ADD_NOTE_REQUEST = 1;
     private NoteViewModel noteViewModel;
 
     @Override
@@ -27,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
+        // Create AddNoteActivity intent on FloatingActionButton click
+        FloatingActionButton floatingActionButton = findViewById(R.id.button_add_note);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addNoteIntent = new Intent(MainActivity.this, AddNoteActivity.class);
+                startActivityForResult(addNoteIntent, ADD_NOTE_REQUEST);
+            }
+        });
 
         final NoteAdapter adapter = new NoteAdapter();
         recyclerView.setAdapter(adapter);
