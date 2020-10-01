@@ -1,5 +1,6 @@
 package com.sarmaru.mihai.androidarchitecturenoteapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sarmaru.mihai.androidarchitecturenoteapp.adapters.NoteAdapter;
@@ -54,5 +56,23 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setNotes(notes);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK) {
+            // Get note extras from intent and save note
+            String title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
+            String description = data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
+            int priority = data.getIntExtra(AddNoteActivity.EXTRA_PRIORITY, 1);
+            
+            noteViewModel.insert(new Note(title, description, priority));
+
+            Toast.makeText(this, "Note Saved", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Note not Saved", Toast.LENGTH_SHORT).show();
+        }
     }
 }
