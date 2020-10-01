@@ -3,14 +3,20 @@ package com.sarmaru.mihai.androidarchitecturenoteapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 public class AddNoteActivity extends AppCompatActivity {
+    public static final String EXTRA_TITLE = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_TITLE";
+    public static final String EXTRA_DESCRIPTION = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_DESCRIPTION";
+    public static final String EXTRA_PRIORITY = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_PRIORITY";
+
     private EditText editTextTitle;
     private EditText editTextDescription;
     private NumberPicker numberPickerPriority;
@@ -33,6 +39,27 @@ public class AddNoteActivity extends AppCompatActivity {
         setTitle("Add Note");
     }
 
+    private void saveNote() {
+        String title = editTextTitle.getText().toString();
+        String description = editTextDescription.getText().toString();
+        int priority = numberPickerPriority.getValue();
+
+        // Check if title and description are empty
+        if (title.trim().isEmpty() || description.trim().isEmpty()) {
+            Toast.makeText(this, "Please insert a title and description", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Create intent, put extra and finish activity
+        Intent dataIntent = new Intent();
+        dataIntent.putExtra(EXTRA_TITLE, title);
+        dataIntent.putExtra(EXTRA_DESCRIPTION, description);
+        dataIntent.putExtra(EXTRA_PRIORITY, priority);
+
+        setResult(RESULT_OK, dataIntent);
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -44,7 +71,7 @@ public class AddNoteActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_note:
-                // Save note here
+                saveNote();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
