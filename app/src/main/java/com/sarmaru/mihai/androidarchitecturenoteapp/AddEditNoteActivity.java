@@ -12,7 +12,8 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
-public class AddNoteActivity extends AppCompatActivity {
+public class AddEditNoteActivity extends AppCompatActivity {
+    public static final String EXTRA_ID = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_ID";
     public static final String EXTRA_TITLE = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_DESCRIPTION";
     public static final String EXTRA_PRIORITY = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_PRIORITY";
