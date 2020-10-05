@@ -37,7 +37,17 @@ public class AddEditNoteActivity extends AppCompatActivity {
 
         // Set Actionbar icon and title
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Note");
+
+        // Set Title and Edit Text fields based on received intent
+        Intent receivedIntent = getIntent();
+        if (receivedIntent.hasExtra(EXTRA_ID)) {
+            setTitle("Edit Note");
+            editTextTitle.setText(receivedIntent.getStringExtra(EXTRA_TITLE));
+            editTextDescription.setText(receivedIntent.getStringExtra(EXTRA_DESCRIPTION));
+            numberPickerPriority.setValue(receivedIntent.getIntExtra(EXTRA_PRIORITY, 1));
+        } else {
+            setTitle("Add Note");
+        }
     }
 
     private void saveNote() {
@@ -56,6 +66,11 @@ public class AddEditNoteActivity extends AppCompatActivity {
         dataIntent.putExtra(EXTRA_TITLE, title);
         dataIntent.putExtra(EXTRA_DESCRIPTION, description);
         dataIntent.putExtra(EXTRA_PRIORITY, priority);
+
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1) {
+            dataIntent.putExtra(EXTRA_ID, id);
+        }
 
         setResult(RESULT_OK, dataIntent);
         finish();
