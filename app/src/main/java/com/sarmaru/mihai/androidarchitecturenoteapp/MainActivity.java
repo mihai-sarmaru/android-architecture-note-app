@@ -109,6 +109,26 @@ public class MainActivity extends AppCompatActivity {
             noteViewModel.insert(new Note(title, description, priority));
 
             Toast.makeText(this, "Note Saved", Toast.LENGTH_SHORT).show();
+
+        } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
+            int noteId = data.getIntExtra(AddEditNoteActivity.EXTRA_ID, -1);
+
+            if (noteId == -1) {
+                Toast.makeText(this, "Note can't be updated", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Get note extras from intent and update note
+            String title = data.getStringExtra(AddEditNoteActivity.EXTRA_TITLE);
+            String description = data.getStringExtra(AddEditNoteActivity.EXTRA_DESCRIPTION);
+            int priority = data.getIntExtra(AddEditNoteActivity.EXTRA_PRIORITY, 1);
+
+            Note updatedNote = new Note(title, description, priority);
+            updatedNote.setId(noteId);
+            noteViewModel.update(updatedNote);
+
+            Toast.makeText(this, "Note Updated", Toast.LENGTH_SHORT).show();
+            
         } else {
             Toast.makeText(this, "Note not Saved", Toast.LENGTH_SHORT).show();
         }
