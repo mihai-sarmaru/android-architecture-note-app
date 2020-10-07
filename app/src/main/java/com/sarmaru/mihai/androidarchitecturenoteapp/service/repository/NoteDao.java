@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp.models;
+package com.sarmaru.mihai.androidarchitecturenoteapp.service.repository;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,6 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.model.Note;
 
 import java.util.List;
 

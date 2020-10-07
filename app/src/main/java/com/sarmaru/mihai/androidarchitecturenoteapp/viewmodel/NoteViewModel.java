@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp.viewmodels;
+package com.sarmaru.mihai.androidarchitecturenoteapp.viewmodel;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.sarmaru.mihai.androidarchitecturenoteapp.models.Note;
-import com.sarmaru.mihai.androidarchitecturenoteapp.models.NoteRepository;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.model.Note;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.repository.NoteRepository;
 
 import java.util.List;
 

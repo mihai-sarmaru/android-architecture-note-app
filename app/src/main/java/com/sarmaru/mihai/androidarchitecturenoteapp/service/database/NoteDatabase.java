@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp.databases;
+package com.sarmaru.mihai.androidarchitecturenoteapp.service.database;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,8 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.sarmaru.mihai.androidarchitecturenoteapp.models.Note;
-import com.sarmaru.mihai.androidarchitecturenoteapp.models.NoteDao;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.model.Note;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.repository.NoteDao;
 
 // Singleton Class
 @Database(entities = {Note.class}, version = 1)

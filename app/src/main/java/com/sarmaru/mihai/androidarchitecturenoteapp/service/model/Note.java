@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp.models;
+package com.sarmaru.mihai.androidarchitecturenoteapp.service.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

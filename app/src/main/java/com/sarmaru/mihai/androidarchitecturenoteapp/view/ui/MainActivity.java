@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp;
+package com.sarmaru.mihai.androidarchitecturenoteapp.view.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,9 +18,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.sarmaru.mihai.androidarchitecturenoteapp.adapters.NoteAdapter;
-import com.sarmaru.mihai.androidarchitecturenoteapp.models.Note;
-import com.sarmaru.mihai.androidarchitecturenoteapp.viewmodels.NoteViewModel;
+import com.sarmaru.mihai.androidarchitecturenoteapp.R;
+import com.sarmaru.mihai.androidarchitecturenoteapp.view.adapter.NoteAdapter;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.model.Note;
+import com.sarmaru.mihai.androidarchitecturenoteapp.viewmodel.NoteViewModel;
 
 import java.util.List;
 

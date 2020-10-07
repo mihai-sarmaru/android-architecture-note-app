@@ -1,11 +1,12 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp.models;
+package com.sarmaru.mihai.androidarchitecturenoteapp.service.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.sarmaru.mihai.androidarchitecturenoteapp.databases.NoteDatabase;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.database.NoteDatabase;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.model.Note;
 
 import java.util.List;
 

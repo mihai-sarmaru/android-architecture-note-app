@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp;
+package com.sarmaru.mihai.androidarchitecturenoteapp.view.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+
+import com.sarmaru.mihai.androidarchitecturenoteapp.R;
 
 public class AddEditNoteActivity extends AppCompatActivity {
     public static final String EXTRA_ID = "com.sarmaru.mihai.androidarchitecturenoteapp.EXTRA_ID";

@@ -1,4 +1,4 @@
-package com.sarmaru.mihai.androidarchitecturenoteapp.adapters;
+package com.sarmaru.mihai.androidarchitecturenoteapp.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sarmaru.mihai.androidarchitecturenoteapp.R;
-import com.sarmaru.mihai.androidarchitecturenoteapp.models.Note;
+import com.sarmaru.mihai.androidarchitecturenoteapp.service.model.Note;
 
 public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
 
